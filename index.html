@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINA LARA | OFFICIAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#fff5f7] text-gray-800 overflow-x-hidden">
+
+    <!-- FONDO FIJO -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <img src="https://i.ibb.co/5XsWWTMn/reina-lara.jpg" class="w-full h-full object-cover opacity-20 scale-105">
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-40 p-4 flex justify-between items-center border-b border-pink-100 shadow-sm">
+        <button onclick="toggleMenu()" class="p-2">
+            <div class="w-6 h-0.5 bg-pink-500 mb-1"></div>
+            <div class="w-6 h-0.5 bg-pink-500 mb-1"></div>
+            <div class="w-6 h-0.5 bg-pink-500"></div>
+        </button>
+        <h1 class="text-xl font-black uppercase tracking-tighter italic text-pink-600">Reina Lara</h1>
+        <button onclick="navTo('cart')" class="relative p-2">
+            <svg class="w-7 h-7 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span id="cart-count" class="absolute top-0 right-0 bg-pink-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+    </nav>
+
+    <!-- MENU LATERAL -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white z-[60] shadow-2xl transform -translate-x-full transition-transform duration-500 p-10 flex flex-col">
+        <div class="flex justify-between items-center mb-16">
+            <span class="font-black text-[9px] uppercase tracking-[0.4em] text-pink-300">Menú</span>
+            <button onclick="toggleMenu()" class="text-pink-500 font-bold">✕</button>
+        </div>
+        <div class="flex flex-col gap-8 flex-grow">
+            <button onclick="navTo('home')" class="text-left font-black text-xl uppercase italic text-pink-600">Inicio</button>
+            <button onclick="navTo('cart')" class="text-left font-black text-xl uppercase italic text-pink-600">Mi Pedido</button>
+        </div>
+        <div class="flex justify-end p-4">
+            <button onclick="askAdminCode()" class="p-3 bg-pink-50 rounded-full text-pink-300">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN VIEWS -->
+    <main class="pt-24 pb-12 relative z-10 px-4">
+        <!-- VISTA HOME -->
+        <div id="view-home" class="view">
+            <div id="productGrid" class="grid grid-cols-2 gap-4 max-w-5xl mx-auto"></div>
+        </div>
+
+        <!-- VISTA CARRITO -->
+        <div id="view-cart" class="view hidden max-w-md mx-auto bg-white/95 p-6 rounded-[2.5rem] shadow-xl border border-pink-50">
+            <h2 class="text-3xl font-black mb-8 uppercase italic tracking-tighter text-pink-600">Mi Pedido</h2>
+            <div id="cart-items" class="space-y-6 mb-8"></div>
+            <div class="border-t-2 border-pink-50 pt-6 mb-8 flex justify-between items-end">
+                <span class="text-pink-300 font-bold uppercase text-[10px]">Total</span>
+                <p id="cart-total" class="text-3xl font-black text-pink-600">$0</p>
+            </div>
+            <button onclick="checkout()" class="w-full bg-pink-500 text-white p-6 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em]">Finalizar por WhatsApp</button>
+        </div>
+
+        <!-- VISTA ADMIN -->
+        <div id="view-admin" class="view hidden max-w-2xl mx-auto bg-white p-8 rounded-[2.5rem] shadow-2xl">
+            <h2 class="text-xl font-black uppercase text-pink-600 mb-6">Panel de Stock (25 Slots)</h2>
+            <div id="tab-stock" class="space-y-3"></div>
+        </div>
+    </main>
+
+    <!-- DETALLE PRODUCTO -->
+    <div id="view-product-detail" class="view hidden fixed inset-0 bg-white z-[70] p-6 overflow-y-auto"></div>
+
+    <!-- ANIMACIÓN MP AGREGADO -->
+    <div id="mp-success" class="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none opacity-0 transition-opacity duration-300">
+        <div class="text-center">
+            <div class="w-24 h-24 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4 scale-0" id="mp-circle">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <p class="text-green-500 font-black uppercase tracking-widest text-sm italic">¡Añadido!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
