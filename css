@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap');
+
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, button, .font-black { font-family: 'Archivo Black', sans-serif; }
+
+.hidden { display: none !important; }
+
+/* Botones de Talle */
+.talle-btn {
+    border: 2px solid #fdf2f8;
+    padding: 12px;
+    font-size: 11px;
+    font-weight: 900;
+    color: #db2777;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+.talle-btn.selected {
+    background: #db2777;
+    color: white;
+    border-color: #db2777;
+}
+
+/* Animación Success */
+.mp-active { opacity: 1 !important; }
+.mp-circle-pop { animation: popSuccess 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+@keyframes popSuccess { from { transform: scale(0); } to { transform: scale(1); } }
+
+::-webkit-scrollbar { width: 0px; }
