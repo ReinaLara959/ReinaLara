@@ -7,13 +7,13 @@ function init() {
     for(let i = 1; i <= 25; i++) {
         products.push({
             id: i,
-            name: `PRODUCTO ${i}`, // Editá este nombre
-            price: 0,              // Poné un precio mayor a 0 para mostrarlo (ej: 15000)
+            name: `Conjunto minnie`, // Editá este nombre
+            price: 23000,              // Poné un precio mayor a 0 para mostrarlo (ej: 15000)
             description: "Prenda exclusiva diseñada para resaltar tu estilo. Materiales de alta calidad y calce perfecto.",
             code: `REF-00${i}`,
             sizes: ["S", "M", "L", "XL"],
-            images: ["https://i.ibb.co/5XsWWTMn/reina-lara.jpg"], // URL de la imagen
-            inStock: false         // Cambiá a true para que se vea en la web
+            images: ["https://i.ibb.co/zHhsjfJm/IMG-9499.jpg"], // URL de la imagen
+            inStock: true         // Cambiá a true para que se vea en la web
         });
     }
 }
